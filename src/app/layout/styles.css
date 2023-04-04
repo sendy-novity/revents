@@ -13,3 +13,7 @@ div.ui.fixed.menu {
 div.main {
   margin-top: 100px;
 }
+
+button.ui.button {
+  margin-top: 20px;
+}
