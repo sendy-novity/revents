@@ -7,47 +7,47 @@ import HomePage from "../../features/home/HomePage";
 import NavBar from "../../features/nav/NavBar";
 
 function App() {
+  const routes =[
+    {
+      name: 'dashboard',
+      path: '/events',
+      element: <EventDashboard/>
+    },
+    {
+      name: 'eventDetailed',
+      path: '/events/:id',
+      element: <EventDetailedPage/>
+    },
+    {
+      name: 'createEvent',
+      path: '/createEvent',
+      element: <EventForm/>
+    },
+    {
+      name: 'manageEvent',
+      path: '/manage/:id',
+      element: <EventForm/>
+    }
+  ]
+
+  const routeComponents = routes.map(({name, path, element}) => (
+    <Route
+      key={name}
+      path={path}
+      element={
+        <Container className='main'>
+          <NavBar/>
+         {element}
+        </Container>
+    }
+  />
+  ))
+  
   return (
     <>
       <Routes>
         <Route path='/' element={<HomePage />} />
-
-        <Route
-          path='/events'
-          element={
-            <Container className='main'>
-              <NavBar/>
-              <EventDashboard />
-            </Container>
-          }
-        />
-        <Route
-          path='/events/:id'
-          element={
-            <Container className='main'>
-              <NavBar/>
-              <EventDetailedPage />
-            </Container>
-          }
-        />
-        <Route
-          path={'/createEvent'}
-          element={
-            <Container className='main'>
-              <NavBar/>
-              <EventForm />
-            </Container>
-          }
-        />
-        <Route
-          path={'/manage/:id'}
-          element={
-            <Container className='main'>
-              <NavBar/>
-              <EventForm />
-            </Container>
-          }
-        />
+        {routeComponents}
       </Routes>
     </>
   );
