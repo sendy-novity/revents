@@ -5,12 +5,19 @@ import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './app/store/store';
+import ScrollToTop from './app/layout/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-     <App />
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ScrollToTop/>
+      <App />
+    </BrowserRouter>
+  </Provider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
