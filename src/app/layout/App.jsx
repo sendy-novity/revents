@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { Container } from "semantic-ui-react";
 import EventDashboard from "../../features/events/eventDashboard/EventDashboard";
 import EventForm from "../../features/events/eventForm/EventForm";
@@ -6,7 +7,7 @@ import EventDetailedPage from "../../features/events/eventsDetailed/EventDetaile
 import HomePage from "../../features/home/HomePage";
 import NavBar from "../../features/nav/NavBar";
 import Sandbox from "../../features/sandbox/Sandbox";
-import ModalManager from "../common/form/modals/ModalManager";
+import ModalManager from "../common/modals/ModalManager";
 
 function App() {
     const {key} = useLocation();
@@ -55,6 +56,7 @@ function App() {
   return (
     <>
       <ModalManager/>
+      <ToastContainer position="bottom-right" hideProgressBar/>
       <Routes>
         <Route path='/' key="home" index element={<HomePage/>} />
         {routeComponents}

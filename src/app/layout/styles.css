@@ -1,4 +1,4 @@
-body {
+#body {
   background-color: #eaeaea;
 }
 
@@ -11,7 +11,7 @@ div.ui.fixed.menu {
 }
 
 div.main {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 button.ui.button, a.ui.button{
@@ -31,4 +31,10 @@ button.ui.button, a.ui.button{
 
 .masthead h1.ui.header {
   font-size: 4em;
+}
+
+div.react-calendar {
+  width: 100%;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
